@@ -2,7 +2,7 @@
     "name": "SparkPay Zen",
     "short_name": "SparkPay Zen",
     "description": "Full screen HTML + Widget Editor + disabled line wraps for SparkPay Development.",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "manifest_version": 2,
     "icons": {
         "128": "images/icon.png"
@@ -23,6 +23,11 @@
             "lib/material-components-web.min.css",
             "sparkpay-zen/sparkpay-zen.css"],
 
+
         "run_at": "document_end"
-    }]
+    }],
+    
+    "web_accessible_resources":[
+        "lib/*"
+    ]
 }

@@ -1,6 +1,6 @@
 
 
-# SparkPay Zen (Version 0.1.1)
+# SparkPay Zen (Version 0.1.2)
 
 This extension lets you expand SparkPay's HTML Editor to the full width of the screen along with disabling line breaks and code wrapping. Now go forth and continue your journey towards developer enlightenment...
 
