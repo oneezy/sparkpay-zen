@@ -1,6 +1,8 @@
 
 var themesLoaded = {};
+var defaultTheme = "cm-s-default";
 var currentTheme = "";
+var previousTheme = "";
 
 function checkIfThemesLoaded(key){
     if (themesLoaded[key] == undefined){
@@ -48,22 +50,27 @@ function importThemes() {
 
     function themeSelectMenu() {
         $("#zenTheme").on('change', function() {
-            currentTheme = $(this).val();
-            setTheme(currentTheme);
+            //currentTheme = $(this).val();
+            setTheme($(this).val());
         });
     }
 
     function setTheme(theme){
+        previousTheme = currentTheme;
+        currentTheme = theme;
+
         var iframes = $("iframe");
 
         if (iframes.length){
             $.each(iframes, function(i, el){
-                el.contentWindow.$('.CodeMirror').addClass('CodeMirror-wrap');
+                el.contentWindow.$('.CodeMirror').removeClass(defaultTheme);
+                el.contentWindow.$('.CodeMirror').removeClass(previousTheme);
                 el.contentWindow.$('.CodeMirror').addClass(theme);
             })
         }
 
-        $('.CodeMirror').addClass('CodeMirror-wrap');
+        $('.CodeMirror').removeClass(defaultTheme);
+        $('.CodeMirror').removeClass(previousTheme);
         $('.CodeMirror').addClass(theme);
     }
 
