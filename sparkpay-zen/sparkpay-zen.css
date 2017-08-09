@@ -1,16 +1,55 @@
+:root {
+
+    --primary-color: #28ae60;
+    --primary-color-hover: #269956;
+    --gray-lite: rgba(176, 190, 197, 1);
+    --white-lite: rgba(176, 190, 197, .2);
+    --white: rgba(256, 256, 256, 1);
+
+}
+
+/* Toggle Wrapper 
+**********************************************************/
+.toggle-wrapper { position: fixed; right: 30px; bottom: 40px; z-index: 999999999; }
+.toggle-wrapper .reveal-container { 
+	opacity: 0; transform: scale(0, 0) translateY(-20px); transition: .2s cubic-bezier(0, 0, 0.2, 1); 
+	transform-origin: 180px bottom;
+	position: absolute; bottom: 100%; right: 0;
+	display: flex; flex-direction: column; 
+}
+	
+.toggle-wrapper:hover .reveal-container { 
+	opacity: 1; transform: scale(1,1) translateY(0); 
+}
+
+.toggle-wrapper .reveal-item { opacity: .42; transition: opacity .12s cubic-bezier(0,0,.2,1); cursor: pointer; font-size: 12px; text-shadow: 1px 1px 0 #fff; text-transform: uppercase; font-family: arial; display: flex; flex-direction: row; align-items: center; justify-content: flex-end; }
+.toggle-wrapper .reveal-item:hover { opacity: 1; }
+.toggle-wrapper .reveal-item .mini-fab { transform: scale(.75,.75); background: var(--gray-lite); }
+.toggle-wrapper .reveal-item .mini-fab:hover { background: var(--gray-lite); }
+
+.toggle-wrapper .reveal-item .item-label { 
+	border-radius: 3px; background: var(--white-lite); padding: .3rem 1rem; display: inline-block; white-space: nowrap; 
+	opacity: 0; transform: scale(0,0); transform-origin: right bottom; transition: .12s cubic-bezier(0,0,.2,1); 
+}
+
+.toggle-wrapper .reveal-item:hover .item-label { 
+	transform: scale(1,1); opacity: 1; 
+}
+
+
 /* Toggle Button 
 **********************************************************/
-.toggle-editor { position: fixed; right: 30px; bottom: 40px; z-index: 999999999; background: #28ae60; transition: .22s ease-in-out; will-change: background; }
-.toggle-editor:hover { background: #269956; }
-.toggle-editor.active { background: #B0BEC5; }
-.toggle-editor .material-icons { color: white; }
+.toggle-editor { background: var(--primary-color); transition: .22s ease-in-out; will-change: background; }
+.toggle-editor:hover { background: var(--primary-color-hover); }
+.toggle-editor.active { background: var(--gray-lite); }
+.toggle-editor .material-icons { color: var(--white); }
 
 
 /* Zen Theme Select
 **********************************************************/
 .zen-theme-select { display: none; }
 .fullpage-editor .zen-theme-select { display: block; position: fixed; top: 96px; right: 23px; left: inherit; width: 219px; margin-top: 0; z-index: 999999999; }
-.fullpage-editor .zen-theme-select option { background: white; }
+.fullpage-editor .zen-theme-select option { background: var(--white); }
 
 
 /* Full Page Editor (Zen Mode)
@@ -51,7 +90,7 @@
 
 /* Code Wrapping (disabled) */
 .fullpage-editor .CodeMirror-wrap { padding: 0 3rem 2rem 0; }
-.fullpage-editor .CodeMirror-wrap pre { white-space: nowrap; padding-left: 1rem; }
+.fullpage-editor .CodeMirror-wrap pre { white-space: nowrap; word-wrap: normal; word-break: normal; padding-left: 1rem; }
 
 
 

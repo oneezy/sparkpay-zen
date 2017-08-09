@@ -1,6 +1,6 @@
 
 var themesLoaded = {};
-var defaultTheme = "cm-s-default";
+var defaultTheme = "cm-s-default CodeMirror-wrap";
 var currentTheme = "";
 var previousTheme = "";
 
@@ -33,7 +33,6 @@ function importThemes() {
     var currentOpenIframes = [];
 
     function fullPageEditor() {
-        
         if (window == parent)
         $('html').append(toggleButton, themeSelect);
         
@@ -45,6 +44,26 @@ function importThemes() {
             $('.mdc-icon-toggle').toggle();
             $('.CodeMirror').attr('class', 'CodeMirror cm-s-default CodeMirror-wrap');
             $('html').toggleClass('fullpage-editor');
+        });
+    }
+
+    function miniNav() {
+        $(".toggle-wrapper").append(revealMiniNav);
+    }
+
+    function duplicateWindow() {
+        $('.duplicate-window').click(function(e) {
+            
+            var location = window.location.href;
+            var win = window.open(location, '_blank');
+            
+            if (win) {
+                // Browser Allowed
+                win.focus();
+            } else {
+                // Browser Blocked
+                alert('Enable Popups');
+            }
         });
     }
 
@@ -77,6 +96,8 @@ function importThemes() {
     $(function() {
         importThemes();
         fullPageEditor();
+        miniNav();
+        duplicateWindow();
         themeSelectMenu();
 
         setInterval(function(){
