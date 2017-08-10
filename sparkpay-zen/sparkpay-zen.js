@@ -1,9 +1,14 @@
 
+/* Global Variables
+*********************************/
 var themesLoaded = {};
 var defaultTheme = "cm-s-default CodeMirror-wrap";
 var currentTheme = "";
 var previousTheme = "";
 
+
+/* Themes Loaded?
+*********************************/
 function checkIfThemesLoaded(key){
     if (themesLoaded[key] == undefined){
         themesLoaded[key] = false;
@@ -12,6 +17,8 @@ function checkIfThemesLoaded(key){
     return themesLoaded[key];
 }
 
+/* Import Themes
+*********************************/
 function importThemes() { 
     if (!checkIfThemesLoaded(location.href)){
         // Themes
@@ -32,6 +39,8 @@ function importThemes() {
 
     var currentOpenIframes = [];
 
+    /* Expand Page Editor
+    *********************************/
     function fullPageEditor() {
         if (window == parent)
         $('html').append(toggleButton, themeSelect);
@@ -47,10 +56,14 @@ function importThemes() {
         });
     }
 
+    /* Mini Nav
+    *********************************/
     function miniNav() {
         $(".toggle-wrapper").append(revealMiniNav);
     }
 
+    /* Feature: Duplicate Window
+    *********************************/
     function duplicateWindow() {
         $('.duplicate-window').click(function(e) {
             
@@ -67,13 +80,16 @@ function importThemes() {
         });
     }
 
+    /* Feature: Themes
+    *********************************/
+    /* Theme Select Menu */
     function themeSelectMenu() {
         $("#zenTheme").on('change', function() {
-            //currentTheme = $(this).val();
             setTheme($(this).val());
         });
     }
 
+    /* Set Theme */
     function setTheme(theme){
         previousTheme = currentTheme;
         currentTheme = theme;
@@ -93,6 +109,9 @@ function importThemes() {
         $('.CodeMirror').addClass(theme);
     }
 
+
+    /* Run Functions
+    ================================================================= */
     $(function() {
         importThemes();
         fullPageEditor();
@@ -108,5 +127,3 @@ function importThemes() {
         }, 1000);
     });
 })();
-
-// <div class="CodeMirror cm-s-default CodeMirror-wrap">
