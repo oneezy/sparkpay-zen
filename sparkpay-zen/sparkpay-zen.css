@@ -24,7 +24,7 @@
 
 .toggle-wrapper .reveal-item { opacity: .42; transition: opacity .12s cubic-bezier(0,0,.2,1); cursor: pointer; font-size: 12px; text-shadow: 1px 1px 0 #fff; text-transform: uppercase; font-family: arial; display: flex; flex-direction: row; align-items: center; justify-content: flex-end; }
 .toggle-wrapper .reveal-item:hover { opacity: 1; }
-.toggle-wrapper .reveal-item .mini-fab { transform: scale(.75,.75); background: var(--gray-lite); }
+.toggle-wrapper .reveal-item .mini-fab { display: flex; align-items: center; justify-content: center; transform: scale(.75,.75); background: var(--gray-lite); }
 .toggle-wrapper .reveal-item .mini-fab:hover { background: var(--gray-lite); }
 
 .toggle-wrapper .reveal-item .item-label { 
@@ -39,7 +39,7 @@
 
 /* Toggle Button 
 **********************************************************/
-.toggle-editor { background: var(--primary-color); transition: .22s ease-in-out; will-change: background; }
+.toggle-editor { display: flex; align-items: center; background: var(--primary-color); transition: .22s ease-in-out; will-change: background; }
 .toggle-editor:hover { background: var(--primary-color-hover); }
 .toggle-editor.active { background: var(--gray-lite); }
 .toggle-editor .material-icons { color: var(--white); }

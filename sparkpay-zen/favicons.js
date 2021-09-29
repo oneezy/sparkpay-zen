@@ -11,7 +11,7 @@ var iWIDGET   =   chrome.extension.getURL('images/icons/ico/widget.ico');
 function updateTitle() {
     $('.pageTitle h1 .theme-designer').remove();
 
-    var title = $('h1 > span').first().text();
+    var title = $('.pageTitle-text').first().text();
     $('title').text(title);
 }
 
